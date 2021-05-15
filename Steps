@@ -1,0 +1,27 @@
+Steps to complete this task:
+
+1)  Launch an EC2 instance over AWS.
+2)  Configure instance as web server:
+    a)  Install httpd 
+        command: yum install httpd
+    b)  Start service
+        command: systemctl start httpd
+3)  setup rds database as covered in video :
+    link: https://www.linkedin.com/posts/harshita-kumari_vimaldaga-righteducation-educationredefine-activity-6799265280603283456-cRyi
+4)  Download php :
+    command:  amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2  
+3)   Download and configure wordpress
+    a) Download the wordpress zip file, 
+       command:    wget https://wordpress.org/latest.tar.gz
+    b) Unzip this file in document root:
+       Command :    tar -xzvf latest.tar.gz -C /var/www/html
+    c) goto /var/www/html/wordpress. copy sample configuration file and create new configuration file.
+        command: cd /var/www/html/wordpress
+                 cp wp-config-sample.php wp-config.php
+    d) fill details about db you created using rds and provide the endpoint/connection string to the
+        WordPress application to make it work.
+        command: vi /var/www/html/wordpress/wp-config.php
+    e) Restart service
+ 4)  To access the wordpress: 
+     URL :  Public_IP_of_ec2_instance/wordpress
+ 
